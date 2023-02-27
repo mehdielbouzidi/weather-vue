@@ -11,24 +11,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-import { useWeatherStore } from '../stores/WeatherStore'
+import { defineComponent, ref } from "vue";
+import { useWeatherStore } from "../stores/WeatherStore";
 
-const apiKey = import.meta.env.VITE_WEATHER_API_KEY
+const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+
+console.log(apiKey);
 
 export default defineComponent({
-  name: 'SearchInput',
+  name: "SearchInput",
   setup() {
-    const input = ref('')
-    const weatherStore = useWeatherStore()
+    const input = ref("");
+    const weatherStore = useWeatherStore();
 
     async function handleSearch() {
-      if (input.value.trim() !== '' && apiKey !== undefined) {
-        await weatherStore.fetchWeatherData(input.value, apiKey)
+      if (input.value.trim() !== "" && apiKey !== undefined) {
+        await weatherStore.fetchWeatherData(input.value, apiKey);
       }
     }
 
-    return { input, handleSearch }
-  }
-})
+    return { input, handleSearch };
+  },
+});
 </script>

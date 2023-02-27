@@ -6,14 +6,14 @@
 </template>
 
 <script lang="ts">
-import WeatherItemList from './WeatherItemList.vue'
-import SearchInput from './SearchInput.vue'
+import WeatherItemList from "./WeatherItemList.vue";
+import SearchInput from "./SearchInput.vue";
 
 export default {
-  name: 'AppMain',
+  name: "AppMain",
   components: {
     SearchInput,
-    WeatherItemList
-  }
-}
+    WeatherItemList,
+  },
+};
 </script>

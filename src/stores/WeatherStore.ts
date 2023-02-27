@@ -1,34 +1,34 @@
-import { defineStore } from 'pinia'
-import { getWeatherData } from '../services/weatherService'
+import { defineStore } from "pinia";
+import { getWeatherData } from "../services/weatherService";
 
 type WeatherData = {
-  name: string
-  label: string
-  description: string
-  temp: number
-  feels_like: number
-  icon: string
-}[]
+  name: string;
+  label: string;
+  description: string;
+  temp: number;
+  feels_like: number;
+  icon: string;
+}[];
 
 export const useWeatherStore = defineStore({
-  id: 'weather',
+  id: "weather",
   state: () => ({
     weatherData: [] as WeatherData,
     loading: false,
-    error: null
+    error: null,
   }),
   actions: {
     async fetchWeatherData(cityName: string, apiKey: string) {
       try {
-        this.loading = true
+        this.loading = true;
 
-        const weatherData = await getWeatherData(cityName, apiKey)
-        this.weatherData = [...this.weatherData, weatherData]
+        const weatherData = await getWeatherData(cityName, apiKey);
+        this.weatherData = [...this.weatherData, weatherData];
 
-        this.loading = false
+        this.loading = false;
       } catch (error: any) {
-        this.error = error.message
+        this.error = error.message;
       }
-    }
-  }
-})
+    },
+  },
+});
