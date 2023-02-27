@@ -1,5 +1,5 @@
 <template>
-  <main class="text-left">
+  <main class="container">
     <SearchInput />
     <WeatherItemList />
   </main>
